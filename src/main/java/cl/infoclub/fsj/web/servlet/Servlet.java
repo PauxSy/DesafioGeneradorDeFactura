@@ -26,7 +26,8 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+	
 	}
 
 	/**
@@ -34,7 +35,19 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		System.out.println(request.getParameter("nombre"));
+		System.out.println(request.getParameter("empresa"));
+		System.out.println(request.getParameter("rut"));
+		System.out.println(request.getParameter("direccion"));
+		System.out.println(request.getParameter("ciudad"));
+		System.out.println(request.getParameter("valvula"));
+		System.out.println(request.getParameter("turbo"));
+		System.out.println(request.getParameter("freno"));
+		System.out.println(request.getParameter("refri"));
+		System.out.println(request.getParameter("plumi"));
+
+
 	}
 
 }
