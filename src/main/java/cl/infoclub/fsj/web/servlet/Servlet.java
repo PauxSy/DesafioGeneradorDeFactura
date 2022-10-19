@@ -1,6 +1,8 @@
 package cl.infoclub.fsj.web.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,44 +12,55 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/Servlet")
+@WebServlet("/formulario")
 public class Servlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     */
-    public Servlet() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// doGet(request, response);
+		String nombre, empresa, rut, direccion, ciudad, pais;
 
-	
+		int valorTotal, valorTotalNeto;
+
+		int precioValvulas = 120000;
+		int precioTurbo = 1700000;
+		int precioFreno = 760000;
+		int precioRefri = 2300000;
+		int precioPlumi = 10000;
+
+		int cantVal = Integer.parseInt(request.getParameter("valvula"));
+		int cantTurbo = Integer.parseInt(request.getParameter("turbo"));
+		int cantFreno = Integer.parseInt(request.getParameter("freno"));
+		int cantRefri = Integer.parseInt(request.getParameter("refri"));
+		int cantPlumi = Integer.parseInt(request.getParameter("plumi"));
+
+		nombre = request.getParameter("nombre");
+		empresa = request.getParameter("empresa");
+		rut = request.getParameter("rut");
+		direccion = request.getParameter("direccion");
+		ciudad = request.getParameter("ciudad");
+		pais = request.getParameter("pais");
+
+		request.setAttribute("cantVal", cantVal);
+		request.setAttribute("cantTurbo", cantTurbo);
+		request.setAttribute("cantFreno", cantFreno);
+		request.setAttribute("cantRefri", cantRefri);
+		request.setAttribute("cantPlumi", cantPlumi);
+
+		request.setAttribute("precioTotalVal", cantVal * precioValvulas);
+		request.setAttribute("precioTotalTurbo", cantTurbo * precioTurbo);
+		request.setAttribute("precioTotalFreno", cantFreno * precioFreno);
+		request.setAttribute("precioTotalRefri", cantRefri * precioRefri);
+		request.setAttribute("precioTotalPlumi", cantPlumi * precioPlumi);
+
+		valorTotal = ((cantVal * precioValvulas) + (cantTurbo * precioTurbo) + (cantFreno * precioFreno)
+				+ (cantRefri * precioRefri) + (cantPlumi * precioPlumi));
+		
+		valorTotalNeto = valorTotal-(valorTotal/10);
+		
+		request.setAttribute("valorTotal", valorTotal);
+		
+		request.getRequestDispatcher("/GeneraFactura").forward(request, response);
+
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		System.out.println(request.getParameter("nombre"));
-		System.out.println(request.getParameter("empresa"));
-		System.out.println(request.getParameter("rut"));
-		System.out.println(request.getParameter("direccion"));
-		System.out.println(request.getParameter("ciudad"));
-		System.out.println(request.getParameter("valvula"));
-		System.out.println(request.getParameter("turbo"));
-		System.out.println(request.getParameter("freno"));
-		System.out.println(request.getParameter("refri"));
-		System.out.println(request.getParameter("plumi"));
-
-
-	}
-
 }

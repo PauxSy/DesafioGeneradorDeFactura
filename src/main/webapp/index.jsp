@@ -13,7 +13,7 @@
     <div class="container border border-grey border-2" >
    <h1>Generador de Facturas</h1>
    <br>
-   <form action="Servlet" method="post">
+   <form action="formulario" method="post">
     <div class="form-group">
       <label for="nombre">Nombre completo</label> 
       <input id="nombre" name="nombre" type="text" required="required" class="form-control" style="width: 500px" >
@@ -56,34 +56,34 @@
   </thead>
   <tbody>
     <tr>
-     <%int valvula = 120000; int turbo = 1700000; int freno = 760000; int refri = 2300000; int plumi = 10000;%>
+     <%int pvalvula = 120000; int pturbo = 1700000; int pfreno = 760000; int prefri = 2300000; String pplumi = "10000";%>
       <td>Valvulas Titaneo</td>
       <td>Valvulas de carrera</td>
-      <td><%="$"+valvula%></td>
+      <td><%="$"+pvalvula%></td>
       <td><input id="valvula" name="valvula" type="number" class="form-control"></td>
     </tr>
     <tr>
         <td>Turbo Full Carrera</td>
         <td>Turbo de competicion multimarca</td>
-   	  	<td><%="$"+turbo%></td>
+   	  	<td><%="$"+pturbo%></td>
         <td><input id="turbo" name="turbo" type="number" class="form-control"></td>
     </tr>
     <tr>
         <td>Kit de freno competición</td>
         <td>Juego de discos, balatas, caliper de competición</td>
-      	<td><%="$"+freno%></td>
+      	<td><%="$"+pfreno%></td>
         <td><input id="freno" name="freno" type="number" class="form-control"></td>
     </tr>
     <tr>
         <td>Sistema de Refrigeración</td>
         <td>Sistema enfriamiento motor carrera</td>
-      	<td><%="$"+refri%></td>
+      	<td><%="$"+prefri%></td>
         <td><input id="refri" name="refri" type="number" class="form-control"></td>
     </tr>
     <tr>
         <td>Plumillas limpia parabrisas Standard</td>
         <td>Plumillas para la lluvia</td>
-      	<td><%="$"+plumi%></td>
+      	<td><%="$"+pplumi%></td>
         <td><input id="plumi" name="plumi" type="number" class="form-control"></td>
     </tr>
   </tbody>
