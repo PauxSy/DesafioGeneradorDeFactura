@@ -58,9 +58,14 @@ public class Servlet extends HttpServlet {
 		
 		valorTotalNeto = valorTotal-(valorTotal/10);
 		
-		request.setAttribute("valorTotal", valorTotal);
+		int dscto = 10;
 		
-		request.getRequestDispatcher("/GeneraFactura").forward(request, response);
+		request.setAttribute("valorTotal", valorTotal);
+		request.setAttribute("valorTotalNeto", valorTotalNeto);
+		request.setAttribute("dscto", dscto);
+
+		
+		request.getRequestDispatcher("/generaFactura").forward(request, response);
 
 	}
 }
