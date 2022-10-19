@@ -40,6 +40,14 @@ public class Servlet extends HttpServlet {
 		direccion = request.getParameter("direccion");
 		ciudad = request.getParameter("ciudad");
 		pais = request.getParameter("pais");
+		
+		request.setAttribute("nombre", nombre);
+		request.setAttribute("empresa", empresa);
+		request.setAttribute("rut", rut);
+		request.setAttribute("direccion", direccion);
+		request.setAttribute("ciudad", ciudad);
+		request.setAttribute("pais", pais);
+		
 
 		request.setAttribute("cantVal", cantVal);
 		request.setAttribute("cantTurbo", cantTurbo);
