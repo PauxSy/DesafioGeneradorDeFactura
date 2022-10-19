@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 <%
-String nombre = (String) request.getAttribute("nombre");
-String empresa = (String) request.getAttribute("empresa");
-String direccion = (String) request.getAttribute("direccion");
-String ciudad = (String) request.getAttribute("ciudad");
-String pais = (String) request.getAttribute("pais");
+String nombre = request.getParameter("nombre");
+String empresa = request.getParameter("empresa");
+String direccion = request.getParameter("direccion");
+String ciudad = request.getParameter("ciudad");
+String pais = request.getParameter("pais");
+
 
 int precioTotalVal = (Integer) request.getAttribute("precioTotalVal");
 int precioTotalTurbo = (Integer) request.getAttribute("precioTotalTurbo");
@@ -42,7 +43,7 @@ int dscto = (Integer) request.getAttribute("dscto");
 	<div class="container border border-grey border-2">
 		<h1>Factura Nº 4125</h1>
 		<br>
-		<%="Nombre: " + nombre%>
+		<%="<p>Nombre: " + nombre +"</p>"%>
 		<%="<p>Empresa: " + empresa + "</p>"%>
 		<%="<p>Direccion: " + direccion + "</p>"%>
 		<%="<p>Ciudad: " + ciudad + "</p>"%>
@@ -104,8 +105,7 @@ int dscto = (Integer) request.getAttribute("dscto");
 				</tr>
 			</tbody>
 		</table>
-		
-			<table class="table table-striped table-dark">
+			<table class="table table-striped table-dark" width="300px">
 			<thead>
 				<tr>
 					<th scope="col">VALOR TOTAL NETO</th>
@@ -116,7 +116,7 @@ int dscto = (Integer) request.getAttribute("dscto");
 			</thead>
 			<tbody>
 				<tr>
-					<td><%=+valorTotalNeto%></td>
+					<td><%="$"+valorTotalNeto%></td>
 					<td><%="$" + dscto + "%"%></td>
 					<td><%="$" + valorTotal%></td>
 				</tr>
